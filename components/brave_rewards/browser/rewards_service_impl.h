@@ -651,7 +651,6 @@ class RewardsServiceImpl : public RewardsService,
       SaveMediaInfoCallback callback,
       const ledger::Result result,
       ledger::PublisherInfoPtr publisher);
-
   void OnContributeUnverifiedPublishers(
       ledger::Result result,
       const std::string& publisher_key,
