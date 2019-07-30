@@ -50,6 +50,7 @@ extern const char kNewTabPageShowBackgroundImage[];
 extern const char kNewTabPageShowClock[];
 extern const char kNewTabPageShowTopSites[];
 extern const char kNewTabPageShowStats[];
+extern const char kNewTabPageShowMilitaryTime[];
 extern const char kBraveEnabledMediaRouter[];
 
 #endif  // BRAVE_COMMON_PREF_NAMES_H_
