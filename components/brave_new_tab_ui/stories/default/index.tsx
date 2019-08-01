@@ -5,7 +5,7 @@
 import * as React from 'react'
 
 // Feature-specific components
-import { Page, Header, Main, Footer, App, PosterBackground, Gradient, ClockWidget as Clock } from '../../components/default'
+import { Page, Header, Footer, App, PosterBackground, Gradient, ClockWidget as Clock } from '../../components/default'
 
 import TopSitesList from './topSites/topSitesList'
 import Stats from './stats'
@@ -78,16 +78,20 @@ export default class NewTabPage extends React.PureComponent<Props, State> {
           <Header>
             <Stats
               showWidget={showStats}
+              menuPosition={'right'}
+              hideWidget={this.toggleShowStats}
             />
             <Clock
               showWidget={showClock}
+              menuPosition={'left'}
+              hideWidget={this.toggleShowClock}
             />
-            <Main>
-              <TopSitesList
-                showWidget={showTopSites}
-              />
-              <SiteRemovalNotification />
-            </Main>
+            <TopSitesList
+              showWidget={showTopSites}
+              menuPosition={'right'}
+              hideWidget={this.toggleShowTopSites}
+            />
+            <SiteRemovalNotification />
           </Header>
           <Footer>
             <FooterInfo

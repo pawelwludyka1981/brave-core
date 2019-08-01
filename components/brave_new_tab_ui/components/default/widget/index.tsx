@@ -3,21 +3,41 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import * as React from 'react'
-import { StyledWidgetContainer } from './styles'
+import { StyledWidget, StyledWidgetContainer, StyledWidgetMenuContainer, StyledWidgetMenu, StyledWidgetButton } from './styles'
+import { IconButton } from '../../default'
+import { CaratCircleODownIcon, CloseStrokeIcon } from 'brave-ui/components/icons'
 
 export interface WidgetProps {
   showWidget: boolean
+  menuPosition: 'right' | 'left'
+  hideWidget: () => void
 }
 
 const createWidget = <P extends object>(WrappedComponent: React.ComponentType<P>) =>
   class Widget extends React.Component<P & WidgetProps> {
     render () {
-      const { showWidget } = this.props
+      const { showWidget, menuPosition, hideWidget } = this.props
       return (
         <StyledWidgetContainer
           showWidget={showWidget}
+          menuPosition={menuPosition}
         >
-          <WrappedComponent {...this.props as P}/>
+          <StyledWidget>
+            <WrappedComponent {...this.props as P}/>
+          </StyledWidget>
+          <StyledWidgetMenuContainer>
+            <IconButton><CaratCircleODownIcon/></IconButton>
+            <StyledWidgetMenu
+              menuPosition={menuPosition}
+            >
+            <StyledWidgetButton
+              onClick={hideWidget}
+            >
+              <CloseStrokeIcon/>
+              <span>Remove</span>
+            </StyledWidgetButton>
+            </StyledWidgetMenu>
+          </StyledWidgetMenuContainer>
         </StyledWidgetContainer>
       )
     }
