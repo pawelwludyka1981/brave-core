@@ -4,13 +4,13 @@
 
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import shieldsLightTheme from '../../../src/theme/shields-light'
-import shieldsDarkTheme from '../../../src/theme/shields-dark'
+import shieldsLightTheme from '../theme/shields-light'
+import shieldsDarkTheme from '../theme/shields-dark'
 import { withThemesProvider } from 'storybook-addon-styled-component-theme'
 // @ts-ignore
 import { withKnobs, boolean, number } from '@storybook/addon-knobs'
 import { withState } from '@dump247/storybook-state'
-const favicon = require('../../assets/img/fake_favicon.png')
+import favicon from './images/fake_favicon.png'
 
 // Components
 import Shields from './index'
@@ -19,7 +19,7 @@ import ShieldsReadOnlyView from './components/readOnlyView'
 // Themes
 const themes = [shieldsLightTheme, shieldsDarkTheme]
 
-storiesOf('Feature Components/Shields', module)
+storiesOf('Shields', module)
   .addDecorator(withThemesProvider(themes))
   .addDecorator(withKnobs)
   .add('Panel', withState({ enabled: true, advancedView: false, readOnlyView: false, firstAccess: true }, (store) => {
