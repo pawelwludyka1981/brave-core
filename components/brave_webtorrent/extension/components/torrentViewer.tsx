@@ -37,7 +37,11 @@ export default class TorrentViewer extends React.PureComponent<Props, {}> {
           onStopDownload={actions.stopDownload}
         />
         <TorrentStatus torrent={torrent} errorMsg={errorMsg} />
-        <TorrentFileList torrentId={torrentId} torrent={torrent} />
+        <TorrentFileList
+          torrentId={torrentId}
+          torrent={torrent}
+          onSaveAllFiles={actions.saveAllFiles}
+        />
         <TorrentViewerFooter torrent={torrent} />
       </div>
     )

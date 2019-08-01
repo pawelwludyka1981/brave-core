@@ -79,3 +79,7 @@ export const delTorrent = (infoHash: string) => {
 
   maybeDestroyWebTorrent()
 }
+
+export const saveAllFiles = (entry: any) => {
+  console.log(entry)
+}
